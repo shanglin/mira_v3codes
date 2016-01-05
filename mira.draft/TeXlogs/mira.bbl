@@ -1,0 +1,81 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Alcock} {et~al.}(1993){Alcock}, {Allsman}, {Axelrod}, {Bennett},
+  {Cook}, {Park}, {Marshall}, {Stubbs}, {Griest}, {Perlmutter}, {Sutherland},
+  {Freeman}, {Peterson}, {Quinn}, \& {Rodgers}}]{1993ASPC...43..291A}
+{Alcock}, C., {Allsman}, R.~A., {Axelrod}, T.~S., {et~al.} 1993, in
+  Astronomical Society of the Pacific Conference Series, Vol.~43, Sky Surveys.
+  Protostars to Protogalaxies, ed. B.~T. {Soifer}, 291
+
+\bibitem[{{Bloom}(2013)}]{2013hst..prop13445B}
+{Bloom}, J. 2013, {Absolute Calibration of the Extragalactic Mira
+  Period-Luminosity Relation}, HST Proposal
+
+\bibitem[{{Feast}(2009)}]{2009asrp.proc...48F}
+{Feast}, M.~W. 2009, in AGB Stars and Related Phenomena, ed. T.~{Ueta},
+  N.~{Matsunaga}, \& Y.~{Ita}, 48
+
+\bibitem[{{Gerasimovic}(1928)}]{1928PNAS...14..963G}
+{Gerasimovic}, B.~P. 1928, Proceedings of the National Academy of Science, 14,
+  963
+
+\bibitem[{{Glass} \& {Evans}(2003)}]{2003MNRAS.343...67G}
+{Glass}, I.~S., \& {Evans}, T.~L. 2003, \mnras, 343, 67
+
+\bibitem[{{Huemmerich} \& {Bernhard}(2012)}]{2012OEJV..149....1H}
+{Huemmerich}, S., \& {Bernhard}, K. 2012, Open European Journal on Variable
+  Stars, 149, 1
+
+\bibitem[{{Kaluzny} {et~al.}(1998){Kaluzny}, {Stanek}, {Krockenberger},
+  {Sasselov}, {Tonry}, \& {Mateo}}]{1998AJ....115.1016K}
+{Kaluzny}, J., {Stanek}, K.~Z., {Krockenberger}, M., {et~al.} 1998, \aj, 115,
+  1016
+
+\bibitem[{{Lomb}(1976)}]{1976Ap&SS..39..447L}
+{Lomb}, N.~R. 1976, \apss, 39, 447
+
+\bibitem[{{LSST Science Collaboration} {et~al.}(2009){LSST Science
+  Collaboration}, {Abell}, {Allison}, {Anderson}, {Andrew}, {Angel}, {Armus},
+  {Arnett}, {Asztalos}, {Axelrod}, \& et~al.}]{2009arXiv0912.0201L}
+{LSST Science Collaboration}, {Abell}, P.~A., {Allison}, J., {et~al.} 2009,
+  ArXiv e-prints, arXiv:0912.0201
+
+\bibitem[{{Maercker} {et~al.}(2015){Maercker}, {Vlemmings}, {Brunner}, {De
+  Beck}, {Humphreys}, {Kerschbaum}, {Lindqvist}, {Olofsson}, \&
+  {Ramstedt}}]{2015arXiv151201350M}
+{Maercker}, M., {Vlemmings}, W.~H.~T., {Brunner}, M., {et~al.} 2015, ArXiv
+  e-prints, arXiv:1512.01350
+
+\bibitem[{{Pellerin} \& {Macri}(2011)}]{2011ApJS..193...26P}
+{Pellerin}, A., \& {Macri}, L.~M. 2011, \apjs, 193, 26
+
+\bibitem[{{Roberts}(1895)}]{1895MNRAS..56...70R}
+{Roberts}, I. 1895, \mnras, 56, 70
+
+\bibitem[{{Scargle}(1982)}]{1982ApJ...263..835S}
+{Scargle}, J.~D. 1982, \apj, 263, 835
+
+\bibitem[{{Soszy{\'n}ski} {et~al.}(2009){Soszy{\'n}ski}, {Udalski},
+  {Szyma{\'n}ski}, {Kubiak}, {Pietrzy{\'n}ski}, {Wyrzykowski}, {Szewczyk},
+  {Ulaczyk}, \& {Poleski}}]{2009AcA....59..239S}
+{Soszy{\'n}ski}, I., {Udalski}, A., {Szyma{\'n}ski}, M.~K., {et~al.} 2009,
+  \actaa, 59, 239
+
+\bibitem[{{Soszy{\'n}ski} {et~al.}(2011){Soszy{\'n}ski}, {Udalski},
+  {Szyma{\'n}ski}, {Kubiak}, {Pietrzy{\'n}ski}, {Wyrzykowski}, {Ulaczyk},
+  {Poleski}, {Koz{\l}owski}, \& {Pietrukowicz}}]{2011AcA....61..217S}
+---. 2011, \actaa, 61, 217
+
+\bibitem[{{Soszy{\'n}ski} {et~al.}(2013){Soszy{\'n}ski}, {Udalski},
+  {Szyma{\'n}ski}, {Kubiak}, {Pietrzy{\'n}ski}, {Wyrzykowski}, {Ulaczyk},
+  {Poleski}, {Koz{\l}owski}, {Pietrukowicz}, \&
+  {Skowron}}]{2013AcA....63...21S}
+---. 2013, \actaa, 63, 21
+
+\bibitem[{{Udalski} {et~al.}(1992){Udalski}, {Szymanski}, {Kaluzny}, {Kubiak},
+  \& {Mateo}}]{1992AcA....42..253U}
+{Udalski}, A., {Szymanski}, M., {Kaluzny}, J., {Kubiak}, M., \& {Mateo}, M.
+  1992, \actaa, 42, 253
+
+\end{thebibliography}

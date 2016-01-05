@@ -1,0 +1,24 @@
+\section{Introduction}
+
+Mira variable stars (Miras) belong to one type of long period variables which is commonly, and empirically, defined as periodic variables with $V$-band varition greater than 2.5 mag. The pulsating periods of Miras typically range from 100 days to 700 days, but extreme cases can reach beyond 1500 days. They are involved medium or low mass stars at the asymptotic giant branch \citep{2009asrp.proc...48F}. 
+
+Thousands of Miras have been identified in the directions of the Milky Way bulge and Magellanic Clouds by the Optical Gravitational Lensing Experiment [\cite{1992AcA....42..253U}; hereafter OGLE] and MACHO project \citep{1993ASPC...43..291A}. The Mira light curves obtained by these projects are usually charactered by long time span, full phase coverage, and hundreds of epochs. The Mira light curves are not strictly periodic, but show long-term variations in the mean magnitude and cycle-to-cycle variations. The curve shape for different Miras also varies. Some examples of the light curve variation were described in \cite{2012OEJV..149....1H}.
+
+The Mira Period-Luminosity relation (P-L relation) was initially suggested by \cite{1928PNAS...14..963G}. Recent sudies \citep{2003MNRAS.343...67G} have shown this relation exhibits small scatter at $K$ ($\sigma$$\sim$0.13 mag), which can be used as distance indicator. The near-infrared Mira P-L relations in Large Magellanic Cloud (LMC), Small Magellanic Cloud, and the Galactic bulge have been explored by \cite{2009AcA....59..239S}, \cite{2011AcA....61..217S}, and \cite{2013AcA....63...21S} respectively. However, extragalactic Mira P-L relations have not yet been calibrated. \cite{2013hst..prop13445B} have proposed a dedicated Mira search in megamaser galaxy NGC 4258 to obtain the infrared Mira P-L relations. In the near future, the LSST project will cover dozens of nearby galaxies where Mira P-L relations can be obtained\citep{2009arXiv0912.0201L}.
+
+In this paper, we conducted a Mira search in M33 using the DIRECT and its follow-up observations [\cite{1998AJ....115.1016K,2011ApJS..193...26P}; hereafter M33 observations]. Although the observational baseline is up to nine years, the number of observations and data quality are significantly lower than those of the OGLE and MACHO projects. At low cadence, the non-periodic variation components of the Mira light curves obstruct period detection. To address this problem, we adopted a semi-parameteric periodogram (\red{Citation Coming Soon}) to search for Miras and their periods. This periodogram, which is designed for low-cadence Mira observations, has a Gaussian process component to account for the deviations from exact periodicity, and gives better performances than Lomb-Scargle \citep{1976Ap&SS..39..447L,1982ApJ...263..835S} periodogram for M33 observations.
+
+To help identify Miras among other type of stars, we carried out a comprehensive simulation and built classification models using machine learning methods. We extracted \red{XXX} features from simulated light curves and their frequency spectra to train the models, then applied the models on the M33 observations to classify Miras. We obtained \red{XXX} Mira candidates in M33 with a \red{XX}\% misclassification rate.
+
+This paper is organized as follows. Section~\ref{sec.observations} introduces the observations of M33. In Section~\ref{sec.simulation} we report the methods of simulating M33 observations with prior knowledge of light curve classes and periods if they are Miras. Section~\ref{sec.models} describes the models which were used to identify Miras and estimate their periods. Section~\ref{sec.results} gives the results on real M33 observations.
+
+
+
+% mira
+% observation
+% light curve
+% pl
+% survey, m33
+% periodogram
+% simulations and models
+% structure
