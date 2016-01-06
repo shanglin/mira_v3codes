@@ -5,44 +5,44 @@ The style file: apj.bst
 Database file #1: miraNotes.bib
 Database file #2: mira.bibliography.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 17 entries,
+You've used 21 entries,
             3085 wiz_defined-function locations,
-            771 strings with 8590 characters,
-and the built_in function-call counts, 7661 in all, are:
-= -- 615
-> -- 542
-< -- 10
-+ -- 177
-- -- 188
-* -- 638
-:= -- 1477
-add.period$ -- 17
-call.type$ -- 17
-change.case$ -- 97
-chr.to.int$ -- 17
-cite$ -- 17
-duplicate$ -- 328
-empty$ -- 481
-format.name$ -- 212
-if$ -- 1514
+            803 strings with 9369 characters,
+and the built_in function-call counts, 9309 in all, are:
+= -- 759
+> -- 631
+< -- 13
++ -- 208
+- -- 218
+* -- 760
+:= -- 1792
+add.period$ -- 21
+call.type$ -- 21
+change.case$ -- 123
+chr.to.int$ -- 21
+cite$ -- 21
+duplicate$ -- 398
+empty$ -- 594
+format.name$ -- 245
+if$ -- 1845
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 14
-newline$ -- 55
-num.names$ -- 70
-pop$ -- 109
+missing$ -- 18
+newline$ -- 67
+num.names$ -- 86
+pop$ -- 132
 preamble$ -- 1
-purify$ -- 97
+purify$ -- 123
 quote$ -- 0
-skip$ -- 265
+skip$ -- 330
 stack$ -- 0
-substring$ -- 302
+substring$ -- 389
 swap$ -- 12
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 153
+type$ -- 189
 warning$ -- 0
-while$ -- 61
+while$ -- 77
 width$ -- 0
-write$ -- 173
+write$ -- 213

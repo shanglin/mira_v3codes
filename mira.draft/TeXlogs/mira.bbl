@@ -47,6 +47,10 @@
 {Maercker}, M., {Vlemmings}, W.~H.~T., {Brunner}, M., {et~al.} 2015, ArXiv
   e-prints, arXiv:1512.01350
 
+\bibitem[{{Massey} {et~al.}(2006){Massey}, {Olsen}, {Hodge}, {Strong},
+  {Jacoby}, {Schlingman}, \& {Smith}}]{2006AJ....131.2478M}
+{Massey}, P., {Olsen}, K.~A.~G., {Hodge}, P.~W., {et~al.} 2006, \aj, 131, 2478
+
 \bibitem[{{Pellerin} \& {Macri}(2011)}]{2011ApJS..193...26P}
 {Pellerin}, A., \& {Macri}, L.~M. 2011, \apjs, 193, 26
 
@@ -72,6 +76,15 @@
   {Poleski}, {Koz{\l}owski}, {Pietrukowicz}, \&
   {Skowron}}]{2013AcA....63...21S}
 ---. 2013, \actaa, 63, 21
+
+\bibitem[{{Stetson}(1987)}]{1987PASP...99..191S}
+{Stetson}, P.~B. 1987, \pasp, 99, 191
+
+\bibitem[{{Stetson}(1994)}]{1994PASP..106..250S}
+---. 1994, \pasp, 106, 250
+
+\bibitem[{{Stetson}(1996)}]{1996PASP..108..851S}
+---. 1996, \pasp, 108, 851
 
 \bibitem[{{Udalski} {et~al.}(1992){Udalski}, {Szymanski}, {Kaluzny}, {Kubiak},
   \& {Mateo}}]{1992AcA....42..253U}
