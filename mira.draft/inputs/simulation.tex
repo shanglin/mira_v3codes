@@ -1,15 +1,19 @@
 \section{Simulation of M33 observations} \label{sec.simulation}
 
-1. lmc mira to M33
+% 1. lmc mira to M33
 
-2. constant + gaussian noise from sigma-mag relation
+% 2. constant + gaussian noise from sigma-mag relation
 
-3. constant + under-estimated gaussian noise 
+% 3. constant + under-estimated gaussian noise 
 
-4. constant + gaussian noise from sigma-mag relation + few obnormal
+% 4. constant + gaussian noise from sigma-mag relation + few obnormal
 
-points (bad pixels, cosmic rays, blending, numeric failure, mismatch,
-image boundary)
+% points (bad pixels, cosmic rays, blending, numeric failure, mismatch,
+% image boundary)
 
-5. eclipsing, nova, SRV, irregular variable
+% 5. eclipsing, nova, SRV, irregular variable
 
+To build models for searching Miras from the M33 observations, we simulated Mira and Non-Mira light curves as training data. The simulated light curve includes Miras, constant stars, other type of variable stars, and constant stars with few abnormal observations. Upon the simulated light curves, we calculated the variability index and kept those with $J>0.75$. The number of light curves was chosen to match real observations, other properties such as sampling patterns and measurement uncertainties were also derived from the M33 observations. Below we describe the simulations of different kind of light curves.
+
+\subsection{Mira light curves}
+We simulated 5000 Mira light curves by applying the M33 sampling patterns and noise levels to LMC Mira light curves from the OGLE observations. We used the model from \red{(Citation Coming Soon)} to generate template Mira light curves. The magnitudes of the templates were shifted by 6.2 mag to account for the distance difference between LMC and M33. To simulate a Mira light curve, we randomly selected a sampling pattern from the M33 observations and shifted by some amount to match the baseline of OGLE observations, then 

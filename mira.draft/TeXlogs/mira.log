@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_7) (preloaded format=latex 2015.12.14)  6 JAN 2016 15:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_7) (preloaded format=latex 2015.12.14)  9 JAN 2016 18:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -259,12 +259,12 @@ File: figures.include/edited_n_obs.eps Graphic file (type eps)
 (./inputs/simulation.tex) (./inputs/models.tex) (./inputs/results.tex)
 (./inputs/acknowledgement.tex) (./mira.bbl) [2] (./mira.aux) ) 
 Here is how much of TeX's memory you used:
- 3513 strings out of 494197
- 44891 string characters out of 6157367
- 120022 words of memory out of 5000000
- 6773 multiletter control sequences out of 15000+600000
+ 3514 strings out of 494197
+ 44902 string characters out of 6157367
+ 122022 words of memory out of 5000000
+ 6774 multiletter control sequences out of 15000+600000
  12389 words of font info for 52 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  37i,7n,29p,1028b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mira.dvi (2 pages, 14544 bytes).
+Output written on mira.dvi (2 pages, 15876 bytes).
