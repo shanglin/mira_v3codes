@@ -1,0 +1,1 @@
+The mean magnitude of .alf files is not the same as light curve instrumental magnitude. We matched the .fnl IDs to the .alf IDs and keep ID, fnl mag, and reduced chi square in a new table.

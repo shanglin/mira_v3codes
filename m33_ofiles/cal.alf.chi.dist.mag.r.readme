@@ -1,0 +1,37 @@
+Prepare data for simulating constant star light curves
+
+While the relation between reported uncertainty and magnitude can be easily studied, one should concern that the report uncertainties might not always correct. Sometimes they can be either over-estimated or under-estimated. Inaccurate uncertainties would result in artifacts when calculate the Stetson's J index.
+
+The models need to tell apart Mira light curves from constant star light curves that pass the J>0.75 criterium. So in the training data, or simulated data, we need generate constant star light curves with similar property, say, "reported uncertainties" being under-estimated or over-estimated. To calculate the amount of under-estimation/over-estimation, we plot the reduced Chi square as a function of magnitude for each field. To do this:
+
+(1) Load magnitude and uncertainty in each frame (read ALLFRAME .alf files)
+(2) Calculate the magnitude offset between frames, and shift to the level of the first frame
+(3) Whenever a star have at least 10 observations, calculate the weighted mean magnitude and reduced chi square
+(4) Save a small table with 2 columns, mean mag and reduced chi square
+Note: ALL THE MAGNITUDE WERE INSTRUMENTAL MAGNITUDE, AND WE DO NOT PLAN TO CONVERT TO CALIBRATED MAGNITUDE, SINCE THE MIRA LIGHT CURVES ARE ALSO IN INSTRUMENTAL MAGNITUDE, AND IT DOES NOT MATTER FOR THE PERIODOGRAM.
+
+Next step:
+### (5) Use each of the ID & reduced Chi square to determine the instrumental mag (I) from .fnl file and reduced chi square (X)
+(5) Use the ID mat to calculate unweighted mean of all the frames, then determine the offset between unweighted mean and .fnl mag.
+(6) Use .fnl mag - offset as mean magnitude, calculate the reduced chi square again (Previous chi square not used)
+(7) Randomly select a sampling pattern in that field
+(8) Use the sigma ~ intrumental I relation to calculate simga
+(9) Noise = sigma * sqrt(reduced chi square)
+
+
+
+########### The method below is not good enough: reduced chi square is not normally distributed ###############
+## (1) Load magnitude and uncertainty in each frame (read ALLFRAME .alf files)
+## (2) Calculate the magnitude offset between frames, and shift to the level of the first frame
+## (3) Whenever a star have at least 10 observations, calculate the weighted mean magnitude and reduced chi square
+## (4) With a bin size of 0.2 mag, calculate the mean chi square and the dispersion of chi square, when there are at least 10 stars in the mag bin of consideration.
+## (5) 3-sigma clipping (5 iteration) was applied whenever needed.
+## (6) Results were saved into figures and tables.
+## Note: ALL THE MAGNITUDE WERE INSTRUMENTAL MAGNITUDE, AND WE DO NOT PLAN TO CONVERT TO CALIBRATED MAGNITUDE, SINCE THE MIRA LIGHT CURVES ARE ALSO IN INSTRUMENTAL MAGNITUDE, AND IT DOES NOT MATTER FOR THE PERIODOGRAM.
+
+## Using the result, one can generate light curves by:
+## I' = N(I, sqrt(max{N(E(X),V(X)),0.1^2}) * sigma(I))
+## sigma' = sigma(I)
+## where N() is normal distribution, E() is the mean, V() is the standard deviation, and X is reduced chi square. The sigma=sigma(I) should use the instrumental sigma-mag relation.
+##############################################################################################################
+

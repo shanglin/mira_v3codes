@@ -1,0 +1,32 @@
+this file is made at
+Oct 14, 2015
+
+Previous inc tables [catalog_ionly_inc.dat, catalog_mband_inc.dat] have some problems.
+It is not simply "using cp instead of mv".
+mband.dat do not covers all the light curve files, for either mband.lc or ionly.lc
+
+
+The IDs for light curves are actually defined as:
+(1) mband: filename = <field>mi<vid>_it5.slc where vid is the first column in catalog_mband.dat
+
+(2) Some ionly light curves are actually mband, but they are failed to copy (or move) to the mband directory. I copied those `ionly` files to t_mband because they do have multiple band measurements.
+
+
+Continued at December 11, 2015
+
+This is additional problems with the lc files.
+Some lc files do not contained in the catalog. I will split those files. In t_mband_wo and t_ionly_wo directories, stars are all in the catalog, and the duplicated ionly (w.r.t mband) are deleted. 
+
+dir: not.in.cat.mband should contains those objects that not in the catalog, but still have light curves in the mband catalog. These stars can be recovered by the master images w/ WCS information. (XY to Sky, and then map to other sources of m33.
+
+Summary:
+
+original mband: = lc files in the mband catalog, lc files not in the mband catalog
+original ionly: = lc files in the mband catalog, lc files in the ionly catalog, lc files identical to some of the mband/lcfiles, lc files not in the mband catalog, lc files not in the ionly catalog. (Really messy)
+
+t_mband_wo: lc files in the mband catalog (~orginal mband + orignal ionly), with duplicated (ionly) removed.
+t_ionly_wo: lc files in the ionly catalog and not in the mband catalog, with duplicated (ionly) removed.
+
+For the above t_mand_wo and i_only_wo we have calibrated magnitude and position information.
+
+not.in.cat: lc files not in mband catalog and not in ionly catalog. Duplicated (ionly) removed.

@@ -1,4 +1,6 @@
-dir = '~/Work/m33/gp_v3/m33_ofiles/'
+## dir = '~/Work/m33/gp_v3/m33_ofiles/'
+dir = '~/Work/m33_miras/m33_ofiles/'
+## The directory name changed on some day before 2016 (laptop and desktop), and here we modified the path
 
 lcdir = paste0(dir,'not.in.cat.mband/')
 system(paste0('mkdir -p ',lcdir))

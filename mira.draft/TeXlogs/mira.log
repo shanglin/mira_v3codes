@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_7) (preloaded format=latex 2015.12.14)  9 JAN 2016 18:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_7) (preloaded format=latex 2015.12.14)  10 JAN 2016 18:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -257,14 +257,19 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: figures.include/edited_n_obs.eps Graphic file (type eps)
  <figures.include/edited_n_obs.eps>)
 (./inputs/simulation.tex) (./inputs/models.tex) (./inputs/results.tex)
-(./inputs/acknowledgement.tex) (./mira.bbl) [2] (./mira.aux) ) 
+(./inputs/acknowledgement.tex) (./mira.bbl [2]) [3] (./mira.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
+
+
+ ) 
 Here is how much of TeX's memory you used:
- 3514 strings out of 494197
- 44902 string characters out of 6157367
- 122022 words of memory out of 5000000
- 6774 multiletter control sequences out of 15000+600000
+ 3520 strings out of 494197
+ 44990 string characters out of 6157367
+ 131499 words of memory out of 5000000
+ 6780 multiletter control sequences out of 15000+600000
  12389 words of font info for 52 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 37i,7n,29p,1028b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,7n,29p,1028b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mira.dvi (2 pages, 15876 bytes).
+Output written on mira.dvi (3 pages, 18316 bytes).
