@@ -13,7 +13,7 @@
 
 % 5. eclipsing, nova, SRV, irregular variable
 
-To build models for searching Miras from the M33 observations, we simulated Mira and Non-Mira light curves as training data. The simulated light curve includes Miras, constant stars, other type of variable stars, and constant stars with few abnormal observations. Upon the simulated light curves, we calculated the variability index and kept those with $J>0.75$. The number of light curves was chosen to match real observations, other properties such as sampling patterns and measurement uncertainties were also derived from the M33 observations. Below we describe the simulations of different kind of light curves.
+To build models for searching Miras from the M33 observations, we simulated Mira and Non-Mira light curves as training data. The simulated light curve includes Miras, constant stars, and semiregular variable stars. Upon the simulated light curves, we calculated the variability index and kept those with $J>0.75$. The number of light curves was chosen to match real observations, other properties such as sampling patterns and measurement uncertainties were also derived from the M33 observations. Below we describe the simulations of different kind of light curves.
 
 \subsection{Mira light curves}
 We simulated 5000 Mira light curves by applying the M33 sampling patterns and noise levels to LMC Mira light curves from the OGLE observations. The detailed description of simulation method can be found in \red{(Citation Coming Soon)}, and here we briefly describe the method we used. 
@@ -27,4 +27,34 @@ The noise levels were derived for individual images of M33 observations. We fit 
 where $a$, $b$, and $c$ are free parameters and varies with time $t_i$ and field $f_k$. We then calculated the uncertainties for simulated Mira light curves based on these relations, and added Gaussian noise to their magnitudes with standard deviations at $\sigma(t_i,f_k)$.
 
 \subsection{Constant star light curves}
-We simulated  $5\times 10^5$ light curves for constant stars. The number of light curves matches the number of measured stars in the M33 observations. The method is similar to the simulation of Mira light curves, except for using constant magnitudes as templates. The magnitude distribution of the templates followed the luminosity function of the M33 observations. The sampling patterns were randomly selected from the real light curves of M33 observations, and the noise levels were calculated from Equation~\ref{equ.sigma.mag}.
+
+We simulated $\sim 5\times 10^5$ light curves for constant stars, which matches the number of observed stars in M33. For the M33 observations, the magnitude uncertainties reported by the photometry software were sometimes either under-estimated or over-estimated. Since both the $J$ index and the Mira periodogram utilize the the value of magnitude uncertainties, we took the inaccuracy of reported magnitude uncertainties into account for the simulated light curves. For constant stars the inaccuracy of uncertainties can be described by
+\begin{equation}
+\chi_\nu^2 = \frac{1}{\sqrt{n-1}}\sum_{i=1}^n\frac{(m_i-\bar m)^2}{\sigma_i^2}\,,
+\end{equation}
+where $n$ is the number of observations. Figure~\ref{fig.chi.dist.example} shows the distribution of $\chi_\nu^2$ as a function of magnitude for all stars in one field of the M33 observations.
+
+For each star in the M33 observations, we calculated $\chi_\nu^2$ by assuming that it is a constant star. A sampling pattern was then randomly selected from the true light curves in the same field, and the ``reported uncertainty'' of each epoch was derived based on Equation~\ref{equ.sigma.mag} individually. Finally the simulated magnitude of each epoch was picked the normal distribution
+\begin{equation}
+m = \mathcal{N}(m_0,\sqrt{\chi_\nu^2}\cdot\sigma)\,,
+\end{equation}
+where $m_0$ is the magnitude of that star. The simulated magnitude uncertainty was still set to $\sigma$ from Equation~\ref{equ.sigma.mag}. In this way the simulated light curves give the same inaccuracy of magnitude uncertainties as the real light curves. An example of simulated constant star light curves is given in Figure~\ref{fig.const.flc.example}.
+
+We note that the assumption of all stars in the M33 observations being constant stars is not correct generally, because there should be some variable stars among them. But the amount of variable stars are small relative to the entire sample of stars. An advantage of this method is that stars of bad photometry results, which may be due to bad pixels or frame edges, were also simulated.
+
+
+\begin{figure}
+\epsscale{1}
+\plotone{figures.include/chi_dist_example.eps}
+\caption{$\chi_\nu^2$ as a function of instrumental $I$-band magnitude for one field. The blue dashed line indicates the position of $\chi_\nu^2=1$.}\label{fig.chi.dist.example}
+\end{figure}
+
+\begin{figure}
+\epsscale{1}
+\plotone{figures.include/eii3022_it5_22408_i.eps}
+\caption{An example of simulated constant star light curves. The errorbars indicate the ``reported uncertainties'', which were rescaled before adding noise the light curve.}\label{fig.const.flc.example}
+\end{figure}
+
+
+
+
