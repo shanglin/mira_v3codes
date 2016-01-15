@@ -1,0 +1,1 @@
+This script is to convolve the magnitude distribution of LMC SRV with the completeness functions of the M33 observations. The method is to add a new column to the LMC SRV catalog to indicate the proptions. When sample SRVs from LMC, simply use sample(...,prop=prop).

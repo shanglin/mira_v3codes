@@ -1,0 +1,5 @@
+There was something wrong with M33 catalog file (minor) and thus maybe also something wrong with catalog_inc files. Here I was trying to generate a catalog file for only those with light curves, based on what tableB will be generated.
+
+If tableB is very different from previous tableB, then the simulated Mira light curves should be remake.
+
+If remake the simulated Mira light curve, it is a time to get rid of those with reflection...

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_7) (preloaded format=latex 2015.12.14)  13 JAN 2016 17:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_7) (preloaded format=latex 2015.12.14)  14 JAN 2016 15:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -259,9 +259,9 @@ File: figures.include/edited_n_obs.eps Graphic file (type eps)
 (./inputs/simulation.tex
 File: figures.include/chi_dist_example.eps Graphic file (type eps)
  <figures.include/chi_dist_example.eps>
-File: figures.include/eii3022_it5_22408_i.eps Graphic file (type eps)
+File: figures.include/const_flc_example.eps Graphic file (type eps)
 
-<figures.include/eii3022_it5_22408_i.eps>) (./inputs/models.tex [2]
+<figures.include/const_flc_example.eps>) (./inputs/models.tex [2]
 
 LaTeX Warning: A float is stuck (cannot be placed) on input line 6.
 
@@ -279,12 +279,12 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
 
  ) 
 Here is how much of TeX's memory you used:
- 3526 strings out of 494197
- 45154 string characters out of 6157367
+ 3525 strings out of 494197
+ 45139 string characters out of 6157367
  118022 words of memory out of 5000000
- 6784 multiletter control sequences out of 15000+600000
+ 6783 multiletter control sequences out of 15000+600000
  12389 words of font info for 52 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  37i,7n,29p,1028b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mira.dvi (3 pages, 21488 bytes).
+Output written on mira.dvi (3 pages, 21588 bytes).

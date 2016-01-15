@@ -101,8 +101,8 @@ for (field in fields) {
                         rel.a = rel[sig.idx,'A']
                         rel.b = rel[sig.idx,'B']
                         rel.c = rel[sig.idx,'C']
-                        simulate.lc[i.obs,3] = rel.a^(fnl.mag - rel.b) + rel.c
-                        simulate.lc[i.obs,2] = rnorm(1, mean = fnl.mag, sd = sqrt(red.chi)*simulate.lc[i.obs,3])
+                        simulate.lc[i.obs,3] = round(rel.a^(fnl.mag - rel.b) + rel.c, 3)
+                        simulate.lc[i.obs,2] = round(rnorm(1, mean = fnl.mag, sd = sqrt(red.chi)*simulate.lc[i.obs,3]), 3)
                     }
                     if ((flc.counter %% 1000) == 1) {
                         f.eps = paste0(dir,'figures/',gsub('.slc','',sf.lc),'_',fnl.id,'_',lc.type,'.eps')
