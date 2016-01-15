@@ -2,4 +2,4 @@ There was something wrong with M33 catalog file (minor) and thus maybe also some
 
 If tableB is very different from previous tableB, then the simulated Mira light curves should be remake.
 
-If remake the simulated Mira light curve, it is a time to get rid of those with reflection...
+If remake the simulated Mira light curve, it is a time to get rid of those with reflection, and all use the new C++ code.
