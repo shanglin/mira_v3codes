@@ -1,6 +1,6 @@
 ## (1) generate catalog files for those with light curve files
 ## this will takes some time...
-if (T) {
+if (F) {
     ## (1.1) deal with t_mband
     f.lst = '~/Work/m33_miras/m33_ofiles/t_mband_wo/t_mband.lst'
     lst = read.table(f.lst)
@@ -77,3 +77,37 @@ if (T) {
         message(msg,appendLF=F)
     }
 }
+
+
+## (2) Make table B for slc_c1.csv
+f.cat = '~/Work/m33_miras/m33_ofiles/t_mband_wo/catalog_t_mband.dat'
+cat = read.table(f.cat)
+vi = cat[,7] - cat[,8]
+idx = vi >= 2 & vi < 2.5
+sids = as.character(cat[idx,1])
+dir = '~/Work/m33_miras/m33_ofiles/t_mband_wo/mslcs/'
+sids = paste0(dir,sids,'_it5.slc')
+f.csv = '~/Work/m33_miras/simulate_srv/tableB/slc_c1.csv'
+write.table(sids,f.csv,quote=F,row.names=F,col.names=F)
+
+## (3) Make table B for slc_c2.csv
+idx = vi >= 2.5 & vi < 3
+sids = as.character(cat[idx,1])
+sids = paste0(dir,sids,'_it5.slc')
+f.csv = '~/Work/m33_miras/simulate_srv/tableB/slc_c2.csv'
+write.table(sids,f.csv,quote=F,row.names=F,col.names=F)
+
+## (4) Make table B for slc_ci.csv
+idx = vi >= 3
+sids = as.character(cat[idx,1])
+sids = paste0(dir,sids,'_it5.slc')
+f.csv = '~/Work/m33_miras/simulate_srv/tableB/slc_ci.csv'
+write.table(sids,f.csv,quote=F,row.names=F,col.names=F)
+
+f.cat = '~/Work/m33_miras/m33_ofiles/t_ionly_wo/catalog_t_ionly.dat'
+cat = read.table(f.cat)
+sids = as.character(cat[,1])
+dir = '~/Work/m33_miras/m33_ofiles/t_ionly_wo/islcs/'
+sids = paste0(dir,sids,'_it5.slc')
+write.table(sids,f.csv,quote=F,row.names=F,col.names=F,append=T)
+
