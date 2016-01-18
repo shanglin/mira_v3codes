@@ -6,6 +6,11 @@
 
 using namespace std;
 
+template <typename T> int sgn(T val) {
+    return (T(0) < val) - (val < T(0));
+}
+
+
 // Some string operations to deal with file names and file headers
 string rm_front_spaces(string in_string) {
   string out_string = in_string;
@@ -32,7 +37,7 @@ float calstetj(string f_lc,string delimiter) {
   string line, firstline, tsstring;
   int header, isub;
   int iline, n_obs;
-  float stetj;
+  float stetj = 0;
 
   // (1) check if header exists, and count number of observations
   ifstream cntmyfile(f_lc);
@@ -80,19 +85,21 @@ float calstetj(string f_lc,string delimiter) {
     stetj = -99.999;
   else {
     // (3) calculate stetson's J index
-    for (iline=0; iline < n_obs; iline++) {
-      sum_mag = sum_mag + mags[iline] / errs[i]^2;
-      sum_err = sum_err + 1./errs[i]^2;
+    double sum_mag = 0, sum_err = 0, mean_mag;
+    double sqrt_nobs_s = n_obs/(n_obs - 1);
+    double p_i;
+    for (iline = 0; iline < n_obs; iline++) {
+      sum_mag = sum_mag + mags[iline] / (errs[iline] * errs[iline]);
+      sum_err = sum_err + 1./(errs[iline] * errs[iline]);
     }
     mean_mag = sum_mag/sum_err;
 
-    // woking on here:
-    // declare variables, and use std::transform to deal with vectors
-    delta = sqrt(n_obs/(n_obs - 1)) * (mags - mean_mag) / errs;
-      
-    stetj = 32.1;
+    for (iline = 0; iline < n_obs; iline++) {
+      p_i = sqrt_nobs_s * ((mags[iline] - mean_mag) / errs[iline]) * ((mags[iline] - mean_mag) / errs[iline]) - 1;
+      stetj = stetj + sgn(p_i) * sqrt(fabs(p_i));
+    }
   }
-  return stetj;
+  return stetj/n_obs;
 }
 
 
