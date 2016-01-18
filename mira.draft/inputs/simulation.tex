@@ -1,19 +1,6 @@
 \section{Simulation of M33 observations} \label{sec.simulation}
 
-% 1. lmc mira to M33
-
-% 2. constant + gaussian noise from sigma-mag relation
-
-% 3. constant + under-estimated gaussian noise 
-
-% 4. constant + gaussian noise from sigma-mag relation + few obnormal
-
-% points (bad pixels, cosmic rays, blending, numeric failure, mismatch,
-% image boundary)
-
-% 5. eclipsing, nova, SRV, irregular variable
-
-To build models for searching Miras from the M33 observations, we simulated Mira and Non-Mira light curves as training data. The simulated light curve includes Miras, constant stars, and semiregular variable stars. Upon the simulated light curves, we calculated the variability index and kept those with $J>0.75$. The number of light curves was chosen to match real observations, other properties such as sampling patterns and measurement uncertainties were also derived from the M33 observations. Below we describe the simulations of different kind of light curves.
+To build models for searching Miras from the M33 observations, we simulated Mira and Non-Mira light curves as training data. The simulated light curve includes Miras, constant stars, and semiregular variable stars (SRVs). Upon the simulated light curves, we calculated the variability index and kept those with $J>0.75$. The number of light curves was chosen to match real observations, other properties such as sampling patterns and measurement uncertainties were also derived from the M33 observations. Below we describe the simulations of different kind of light curves.
 
 \subsection{Mira light curves}
 We simulated 5000 Mira light curves by applying the M33 sampling patterns and noise levels to LMC Mira light curves from the OGLE observations. The detailed description of simulation method can be found in \red{(Citation Coming Soon)}, and here we briefly describe the method we used. 
@@ -55,6 +42,8 @@ We note that the assumption of all stars in the M33 observations being constant 
 \caption{An example of simulated constant star light curve (lower) and its corresponding real light curve (upper). The errorbars for the simulated light curve indicate the ``reported uncertainties'', which were rescaled before adding noise the light curve.}\label{fig.const.flc.example}
 \end{figure}
 
+\subsection{SRV light curves}
 
+SRVs share some similarities with Miras, and thus may increase the misclassification rate for M33 Mira search. Although SRV light curves are more chaotic and non-periodic than Mira light curves, the magnitudes and the amount of magnitude variations for some SRVs are compariable to Miras. Due to the sparse nature of the M33 observations, some SRVs in M33 may be misclassified as Miras. To improve the ability of discriminating SRVs and Miras, we included simulated SRV light curves in the training data. This would also help us to assess the misclassification rate.
 
-
+We simulated 5000 SRV light curves with the approach similar to the simulation of Mira light curves. The only difference is that we smooth splined the LMC SRV light curves to obtain template SRV light curves.
