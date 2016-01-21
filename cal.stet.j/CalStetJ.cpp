@@ -64,9 +64,9 @@ float calstetj(string f_lc,string delimiter) {
     abort();
   }
   // (2) load file
-  vector<double> mjds (n_obs);
-  vector<double> mags (n_obs);
-  vector<double> errs (n_obs);
+  vector<float> mjds (n_obs);
+  vector<float> mags (n_obs);
+  vector<float> errs (n_obs);
   
   ifstream lcfile(f_lc);
   if (header == 1)
@@ -85,21 +85,21 @@ float calstetj(string f_lc,string delimiter) {
     stetj = -99.999;
   else {
     // (3) calculate stetson's J index
-    double sum_mag = 0, sum_err = 0, mean_mag;
-    double sqrt_nobs_s = n_obs/(n_obs - 1);
-    double p_i;
+    float sum_mag = 0, sum_err = 0, mean_mag;
+    float sqrt_nobs_s = float(n_obs)/(n_obs - 1);
+    float p_i;
     for (iline = 0; iline < n_obs; iline++) {
       sum_mag = sum_mag + mags[iline] / (errs[iline] * errs[iline]);
       sum_err = sum_err + 1./(errs[iline] * errs[iline]);
     }
     mean_mag = sum_mag/sum_err;
-
     for (iline = 0; iline < n_obs; iline++) {
       p_i = sqrt_nobs_s * ((mags[iline] - mean_mag) / errs[iline]) * ((mags[iline] - mean_mag) / errs[iline]) - 1;
       stetj = stetj + sgn(p_i) * sqrt(fabs(p_i));
     }
+    stetj = stetj / n_obs;
   }
-  return stetj/n_obs;
+  return stetj;
 }
 
 
@@ -142,7 +142,7 @@ int main(int argc, char* argv[ ]) {
 	while (!list_file.eof()) {
 	  list_file >> f_lc;
 	  stetj = calstetj(f_lc,delimiter);
-	  cout << "   >> J = " << stetj << "\n";
+	  cout << f_lc << " " << stetj << "\n";
 	  // counter++;
 	  // string f_status = f_list + ".status.txt";
 	  // ofstream out_status(f_status);

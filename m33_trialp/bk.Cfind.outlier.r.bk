@@ -1,0 +1,36 @@
+
+f.tmp = 'tmp.zer'
+zerdir = '~/Work/m33_miras/m33_trialp/zerfiles/'
+
+fields = c(0:9,letters[1:19])
+field = 'b'
+
+## for (field in fields) {
+
+dir = paste0('~/Work/m33_miras/m33_trialp/m0',field,'/orig/')
+f.zer = paste0(dir,'m0',field,'i.zer')
+
+cmd = paste0('grep "<" ',f.zer, ' > ',f.tmp)
+system(cmd)
+zer = read.table(f.tmp)
+zer[,8] = as.character(zer[,8])
+n.orig = nrow(zer)
+
+plot(1:n.orig, zer[,3], pch = 19)
+
+
+## Remove 4-shooter: chip two
+frames = zer[,8]
+idx = substr(frames,1,2) != 'x2' & substr(frames,1,2) != 'y2'
+zer = zer[idx,]
+n.2 = nrow(zer)
+
+## Remove cloudy conditions: scatter > 0.05
+idx = zer[,3] < 0.05
+zer = zer[idx,]
+n.now = nrow(zer)
+
+print(zer)
+print(paste(n.orig, n.2, n.now))
+
+## }
