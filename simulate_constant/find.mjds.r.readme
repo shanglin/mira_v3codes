@@ -1,0 +1,2 @@
+This is the first step to simulate constant light curves.
+One need to re-sample the MJDs based on all the available MJDs for that field.(Not original MJD patterns, but the overall distribution of number of observations should be the same.

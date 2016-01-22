@@ -1,0 +1,3 @@
+awk 'NR > 1 && $6 >= 10 && $11 < 0.6 {print "NR > 3 && $1 == "$1}' FIELD_NAME.fnl > selconst.awk
+head -3 FIELD_NAME.nmg > FIELD_NAME.frc
+awk -f selconst.awk FIELD_NAME.nmg >> FIELD_NAME.frc

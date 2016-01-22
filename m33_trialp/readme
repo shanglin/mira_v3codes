@@ -1,0 +1,9 @@
+The first part of the work is done on remote computer baires. The scripts is stored in the directory `remote_scripts`.
+
+Light curves are generated again, with 4 iterations of TRIALP programe. x2, y2 chips, field m07, and some frames with scatter > 0.05 were removed from analysis. There are probably mis-matched frames. Besides light curves for variable stars, constant star light curves with observations > 10 are also generated with .frc files. By default the maximum number of stars in .frc file is 6000, and one need to run TRIALP again and again with different .frc files to obtain all the constant star light curves.
+
+The script `check.sig.mag.rel.r` compared the sigma-magnitude relations of the newly generated light curves and previous fit. They agreed very well due to that the same photometry products were used.
+
+Now we need to label bad observations for the newly generated light curves, including both variable and constant stars. Meanwhile, JD will be turned into JD-2450000, x and y position will be deleted. Filenames will become .tlc accordingly to indicate that we re-did the TRIALP. In each file, there will be only 4 columns: MJD, mag, err, label (1 for good and 9 for bad frame, 8 for bad point).
+
+The next step will include the process of calculating the variability index. The scripts are already done during the TRIALP process. The updated scripts take pairs into consideration, and using flux/flux weights to calculate J, and keep the Kurtose to be the squared value of Kurtose to match TRIALP.F, no matter it is correct or not, but just for consistance.
