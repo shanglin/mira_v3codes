@@ -1,6 +1,6 @@
 \section{Simulation of M33 observations} \label{sec.simulation}
 
-To build models for searching Miras from the M33 observations, we simulated Mira and Non-Mira light curves as training data. The simulated light curve includes Miras, constant stars, and semiregular variable stars (SRVs). Upon the simulated light curves, we calculated the variability index and kept those with $J>0.75$. The number of light curves was chosen to match real observations, other properties such as sampling patterns and measurement uncertainties were also derived from the M33 observations. Below we describe the simulations of different kind of light curves.
+To build models for searching Miras from the M33 observations, we simulated Mira and Non-Mira light curves as training data. The simulated light curve includes Miras, constant stars, and semiregular variable stars (SRVs). Upon the simulated light curves, we calculated the variability index and kept those with $L>0.6$. The number of light curves was chosen to match real observations, other properties such as sampling patterns and measurement uncertainties were also derived from the M33 observations. Below we describe the simulations of different kind of light curves.
 
 \subsection{Mira light curves}
 We simulated 5000 Mira light curves by applying the M33 sampling patterns and noise levels to LMC Mira light curves from the OGLE observations. The detailed description of simulation method can be found in \red{(Citation Coming Soon)}, and here we briefly describe the method we used. 
@@ -15,17 +15,26 @@ where $a$, $b$, and $c$ are free parameters and varies with time $t_i$ and field
 
 \subsection{Constant star light curves}
 
-We simulated $\sim 5\times 10^5$ light curves for constant stars, which matches the number of observed stars in M33. For the M33 observations, the magnitude uncertainties reported by the photometry software were sometimes either under-estimated or over-estimated. Since both the $J$ index and the Mira periodogram utilize the the value of magnitude uncertainties, we took the inaccuracy of reported magnitude uncertainties into account for the simulated light curves. For constant stars the inaccuracy of uncertainties can be described by
+We simulated $\sim 5\times 10^5$ light curves for constant stars, which matches the number of observed stars in M33. For the M33 observations, the magnitude uncertainties reported by the photometry software were sometimes either under-estimated or over-estimated. Since both the $L$ index and the Mira periodogram utilize the the value of magnitude uncertainties, we took the inaccuracy of reported magnitude uncertainties into account for the simulated light curves. For constant stars the inaccuracy of uncertainties can be described by
 \begin{equation}
 \chi_\nu^2 = \frac{1}{\sqrt{n-1}}\sum_{i=1}^n\frac{(m_i-\bar m)^2}{\sigma_i^2}\,,
 \end{equation}
 where $n$ is the number of observations. Figure~\ref{fig.chi.dist.example} shows the distribution of $\chi_\nu^2$ as a function of magnitude for all stars in one field of the M33 observations.
 
-For each star in the M33 observations, we calculated $\chi_\nu^2$ by assuming that it is a constant star. A sampling pattern was then randomly selected from the true light curves in the same field, and the ``reported uncertainty'' of each epoch was derived based on Equation~\ref{equ.sigma.mag} individually. Finally the simulated magnitude of each epoch was sampled the normal distribution
+For each star in the M33 observations, we calculated the mean magnitude and $\chi_\nu^2$ by assuming that it is a constant star. To simulate a light curve, the magnitude of each epoch $m_i$ was sampled from a normal distribution
 \begin{equation}
-m = \mathcal{N}(m_0,\sqrt{\chi_\nu^2}\cdot\sigma)\,,
+m_i = \mathcal{N}(\bar m,\sqrt{\chi_\nu^2}\cdot\sigma_i)\,,
 \end{equation}
-where $m_0$ is the magnitude of that star. The simulated magnitude uncertainty was still set to $\sigma$ from Equation~\ref{equ.sigma.mag}. In this way the simulated light curves give the same inaccuracy of magnitude uncertainties as the real light curves. An example of simulated constant star light curve is given in Figure~\ref{fig.const.flc.example}.
+where $\sigma_i$ is the reported magnitude uncertainty for the $i$th epoch. We also shuffled the sampling pattern by randomly selecting $n$ time points from all the valid epochs of the corresponding field. The magnitude uncertainties $\{\sigma_i\}$ kept unchanged for the simulated light curve. In this way the simulated light curves gave the same inaccuracy of magnitude uncertainties as teh real light curves. The similarity between the distribution of $\chi_\nu^2$ for the simulated light curves and that of the real M33 light curves illustrated this consistency (Figure~\ref{fig.chi.dist.example}). \red{An example of the simulated constant star light curve is given in Figure~\ref{fig.const.flc.example}.}
+
+
+% For each star in the M33 observations, we calculated $\chi_\nu^2$ by assuming that it is a constant star. A sampling pattern was then randomly selected from the true light curves in the same field, and the ``reported uncertainty'' of each epoch was derived based on Equation~\ref{equ.sigma.mag} individually. Finally the simulated magnitude of each epoch was sampled the normal distribution
+% \begin{equation}
+% m = \mathcal{N}(m_0,\sqrt{\chi_\nu^2}\cdot\sigma)\,,
+% \end{equation}
+% where $m_0$ is the magnitude of that star. The simulated magnitude uncertainty was still set to $\sigma$ from Equation~\ref{equ.sigma.mag}. In this way the simulated light curves give the same inaccuracy of magnitude uncertainties as the real light curves. An example of simulated constant star light curve is given in Figure~\ref{fig.const.flc.example}.
+
+
 
 We note that the assumption of all stars in the M33 observations being constant stars is not correct generally, because there should be some variable stars among them. But the amount of variable stars are small relative to the entire sample of stars. An advantage of this method is that stars of bad photometry results, which may be due to bad pixels or frame edges, were also simulated.
 

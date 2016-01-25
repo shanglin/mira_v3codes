@@ -1,0 +1,3 @@
+Make the simulation for constant stars. The templates include both true light curves of both L < 0.6 and L > 0.6, so all the junk files is included.
+Real light curve come from TRIALP programe.
+MJDs are shuffled, and selected from all available (good) MJDs. The propotion of each MJD is kept when random sampling.

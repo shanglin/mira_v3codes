@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_7) (preloaded format=latex 2015.12.14)  18 JAN 2016 21:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_7) (preloaded format=latex 2015.12.14)  22 JAN 2016 17:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -261,25 +261,30 @@ File: figures.include/chi_dist_example.eps Graphic file (type eps)
  <figures.include/chi_dist_example.eps>
 File: figures.include/const_flc_example.eps Graphic file (type eps)
 
-<figures.include/const_flc_example.eps> [2]
+<figures.include/const_flc_example.eps>) (./inputs/models.tex [2]
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 48.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 1.
 
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 48.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 1.
 
 
 Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
 
-) (./inputs/models.tex) (./inputs/results.tex) (./inputs/acknowledgement.tex)
-(./mira.bbl) [3] (./mira.aux) ) 
+) (./inputs/results.tex) (./inputs/acknowledgement.tex) (./mira.bbl) [3]
+(./mira.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
+
+
+ ) 
 Here is how much of TeX's memory you used:
- 3526 strings out of 494197
- 45150 string characters out of 6157367
- 120022 words of memory out of 5000000
- 6784 multiletter control sequences out of 15000+600000
+ 3527 strings out of 494197
+ 45160 string characters out of 6157367
+ 119022 words of memory out of 5000000
+ 6785 multiletter control sequences out of 15000+600000
  12389 words of font info for 52 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 37i,7n,29p,1028b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,7n,29p,1043b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mira.dvi (3 pages, 22916 bytes).
+Output written on mira.dvi (3 pages, 23480 bytes).
