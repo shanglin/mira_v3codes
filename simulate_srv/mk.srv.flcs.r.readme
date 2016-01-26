@@ -1,8 +1,2 @@
-This script is similar to the one that simulate Mira light curves.
-Instead of using GP model, smooth spline is used to predict the magnitude at any given time.
-
-If the time baseline of LMC is shorter than that of M33, then it will not be used.
-
-File name: srv_<LMC-ID>_<M33-ID>_<JD-shift>.flc
-
-Three log files were kept to check the convolution of completeness function.
+This is v3.
+We use the MJD patterns from the newer TRIALP light curves, inluding both constant light curves and variable light curves.

@@ -1,14 +1,10 @@
-rm(list=ls())
 set.seed(101)
 
 dir = '~/Work/m33_miras/'
 sim = 'simulate_srv/'
 srvdir = paste0(dir,'lmc_ofiles/srv.lcs/')
-outdir = paste0(dir,'simulate_srv/v3_srv_flcs/')
+outdir = paste0(dir,'simulate_srv/srv_flcs/')
 figure.dir = paste0(dir,'simulate_srv/figures/')
-ctlcdir = '~/Work/m33_miras/m33_trialp/tlc_labels/constant/'
-vtlcdir = '~/Work/m33_miras/m33_trialp/tlc_labels/variable/'
-
 
 f.log = paste0(dir,sim,'srv.generate.log')
 write('#',f.log)
@@ -35,15 +31,15 @@ least.night = 7
 sim.engine = function(f.slc,f.lmc,lmc.id,sid,ts.plot) {
     ## f.lmc = paste0(srvdir,'OGLE-LMC-LPV-09998.dat')
     ## f.slc = '~/Work/m33_miras/m33_ofiles/t_mband_wo/mslcs/smi938_it5.slc'
-    ## lmc.id = '09998'
+    ## lmc.id = 'OGLE-LMC-LPV-09998'
     ## sid = 'smi938'
     ## ts.plot = T
 
     ## load lmc light curve and M33 MJDs, remove bad observations
     field = substr(sid,1,1)
     lmc.dat = read.table(f.lmc)
-    m33.dat = read.table(f.slc, skip = 0)
-    idx = m33.dat[,4] == 1
+    m33.dat = read.table(f.slc, skip = 1)
+    idx = (m33.dat[,8] %% 10) == 1
     m33.dat = m33.dat[idx,]
     nobs = nrow(m33.dat)
     nights = round(m33.dat[,1])
@@ -97,9 +93,8 @@ sim.engine = function(f.slc,f.lmc,lmc.id,sid,ts.plot) {
                 flc[i,3] = round(sig.a^(mag - sig.b) + sig.c, 3)
                 flc[i,2] = round(rnorm(1, mean = mag, sd = flc[i,3]), 3)
             }
-            flc = flc[order(flc[,1]),]
             f.flc = paste0(outdir,'srv_',lmc.id,'_',sid,'_',round(random.shift,2),'.flc')
-            write.table(flc,f.flc,row.names=F,col.names=F, sep = '  ')
+            write.table(flc,f.flc,row.names=F,col.names=F)
             ret = 0
 
             if (ts.plot) {
@@ -125,67 +120,52 @@ sim.engine = function(f.slc,f.lmc,lmc.id,sid,ts.plot) {
     return(ret)
 }
 
+types = c('1','2','i')
+for (type in types) {
 
-v2sim = 'v2_simulate_srv/'
-f.tblA1 = paste0(dir,v2sim,'tableA/conv_lmc_srv_s1.csv')
-f.tblA2 = paste0(dir,v2sim,'tableA/conv_lmc_srv_s2.csv')
-f.tblAi = paste0(dir,v2sim,'tableA/conv_lmc_srv_si.csv')
-tblA1 = read.table(f.tblA1, header=TRUE, sep=',')
-tblA2 = read.table(f.tblA2, header=TRUE, sep=',')
-tblAi = read.table(f.tblAi, header=TRUE, sep=',')
-tblA = rbind(tblA1,tblA2,tblAi)
-
-f.log2 = paste0(dir,sim,'srv.check.lumin.log')
-write('#',f.log2)
-
-LMCids = as.character(tblA[,'ID'])
-LMCIDs = gsub('OGLE-LMC-LPV-','',LMCids)
-LMCprob = tblA[,'Prop']
-nfs.dat = nrow(tblA)
-
-cfs.tlc = list.files(ctlcdir)
-vfs.tlc = list.files(vtlcdir)
-fs.tlc = c(cfs.tlc, vfs.tlc)
-lfs.tlc = c(paste0(ctlcdir,cfs.tlc), paste0(vtlcdir,vfs.tlc))
-nfs.tlc = length(fs.tlc)
-
-n.sim.flc = 1e5
-i.sim.flc = 0
-while (i.sim.flc < n.sim.flc) {
+    f.log2 = paste0(dir,sim,'srv.check.lumin_',type,'.log')
+    write('#',f.log2)
     
-    idx.tlc = sample(1:nfs.tlc, 1)
-    lf.tlc = lfs.tlc[idx.tlc]
-    f.tlc = fs.tlc[idx.tlc]
-    M33ID = gsub('.tlc','',f.tlc)
-    f.slc = lf.tlc
-    sid = M33ID
-
-    idx.dat = sample(1:nfs.dat, 1, prob = LMCprob)
-    f.dat = paste0(LMCids[idx.dat],'.dat')
-    lf.dat = paste0(srvdir, f.dat)
-    LMCID = LMCIDs[idx.dat]
-    LMCid = LMCids[idx.dat]
-    f.lmc = lf.dat
-    lmc.id = LMCID
-    lmc.idx = idx.dat
-
-    msg = paste0('    >> ',round(i.sim.flc * 100 / n.sim.flc, 3),' %      \r')
-    message(msg, appendLF = F)
+    f.tblA = paste0(dir,sim,'tableA/conv_lmc_srv_s',type,'.csv')
+    f.tblB = paste0(dir,sim,'tableB/slc_c',type,'.csv')
+    tblA = read.table(f.tblA, header=TRUE, sep=',')
+    lmc.ids = as.character(tblA[,1])
+    lmc.prop = tblA[,'Prop']
+    n.lmc = length(lmc.ids)
     
-    if ((i.sim.flc %% 1000) == 1) {
-        ts.plot = T
-    } else {
-        ts.plot = F
+    tblB = read.table(f.tblB)
+    fs.slc = as.character(tblB[,1])
+    nfs.slc = length(fs.slc)
+
+    icounter = 0
+    for (ifoo in 1:(3*nfs.slc)) {
+        lmc.idx = sample(1:n.lmc, 1, prob = lmc.prop)
+        lmc.id = lmc.ids[lmc.idx]
+        f.lmc = paste0(srvdir,lmc.id,'.dat')
+
+        f.slc = sample(fs.slc,1)
+        sid = gsub(dir,'',f.slc)
+        sid = gsub('m33_ofiles/t_mband_wo/mslcs/','',sid)
+        sid = gsub('m33_ofiles/t_ionly_wo/islcs/','',sid)
+        sid = gsub('_it5.slc','',sid)
+        
+        if ((icounter %% 1000) == 1) {
+            ts.plot = T
+        } else {
+            ts.plot = F
+        }
+        ret = sim.engine(f.slc,f.lmc,lmc.id,sid,ts.plot)
+
+        icounter = icounter + 1
+        msg = paste0('    >> [Type: ',type,'] Generating light curve: ',round(icounter*100/(3*nfs.slc),2),' %     \r')
+        message(msg,appendLF=F)
+
+        if (ret == 0) {
+            imag = tblA[lmc.idx,'I']
+            ts = paste(lmc.id,imag,sep='  ')
+            write(ts, f.log2, append = T)
+        }
+        
     }
-    ret = sim.engine(f.slc,f.lmc,lmc.id,sid,ts.plot)
-
-    if (ret == 0) {
-        imag = tblA[lmc.idx,'I']
-        ts = paste(lmc.id,imag,sep='  ')
-        write(ts, f.log2, append = T)
-        i.sim.flc = i.sim.flc + 1
-    }
-    
+    print('')
 }
-print('')
-print('FINISHED')

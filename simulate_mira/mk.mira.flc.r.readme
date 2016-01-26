@@ -1,0 +1,16 @@
+Due to the reduced number of frames used, we here re-make the simulated Mira light curves with simular number of observations and match to the new sampling patterns.
+
+Wow~ It seems a lot work to do:
+
+We should not use old MJD patterns. Instead, we randomly select MJD pattern from the newly generated light curves, constant or variable. 
+
+We cannot simply adopt the magnitude uncertainties from the M33 light curves. Because we need to keep the luminosity functions of the M33 observations, and the uncertainties are strongly correlated to the appearent magnitude. To work around, we firstly select a LMC template with probability = luminosity function * probability in that color bin (implicitly included in the number of objects of that bin, no need to multiply this factor actually, and simply do row bind), then randomly select a MJD pattern (MJD pattern is not obviously correlated with appearent magnitude) from M33 constant/variable light curves.
+
+Try to simulate more Mira light curves. Maybe 1*10^5.
+When build the models, only select part of them as training data.
+
+Table A for luminosity functions are needed. Table B is not longer needed.
+
+File names = mira_<5 bit LMC ID>_<M33 ID>_<dt>.flc
+
+Re-do this for the SRVs.
