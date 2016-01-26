@@ -1,16 +1,16 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_7) (preloaded format=latex 2015.12.14)  22 JAN 2016 17:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/MacPorts 2015_7) (preloaded format=latex 2015.12.8)  26 JAN 2016 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **mira.tex
 (./mira.tex
 LaTeX2e <2015/01/01>
-Babel <3.9l> and hyphenation patterns for 43 languages loaded.
+Babel <3.9l> and hyphenation patterns for 44 languages loaded.
 (./inputs/header.tex
 (/opt/local/share/texmf-texlive/tex/latex/emulateapj/emulateapj.cls
 Document Class: emulateapj 
 \bibbaselineskip=\skip41
-(/opt/local/share/texmf-local/tex/latex/revtex/revtex4-1.cls
+(/opt/local/share/texmf-texlive/tex/latex/revtex/revtex4-1.cls
 Document Class: revtex4-1 2010/07/25/20:33:00 4.1r (http://publish.aps.org/revt
 ex4/ for documentation)
  Copyright (c) 2009 The American Physical Society.
@@ -70,7 +70,7 @@ Class revtex4-1 Info: Overriding \@vspace, \@vspacer, \@no@pgbk, \@newline, and
 \widetext@top=\box39
 \widetext@bot=\box40
 Class revtex4-1 Info: Selecting society aps on input line 7542.
-(/opt/local/share/texmf-local/tex/latex/revtex/aps4-1.rtx
+(/opt/local/share/texmf-texlive/tex/latex/revtex/aps4-1.rtx
 File: aps4-1 2010/07/25/20:33:00 4.1r (http://publish.aps.org/revtex4/ for docu
 mentation)
 Class revtex4-1 Info: RevTeX society APS selected on input line 31.
@@ -78,7 +78,7 @@ Class revtex4-1 Info: RevTeX society APS selected on input line 31.
 Class revtex4-1 Info: Selecting journal pra on input line 7544.
 Class revtex4-1 Info: APS journal PRA selected on input line 7545.
 
-(/opt/local/share/texmf-local/tex/latex/revtex/aps10pt4-1.rtx
+(/opt/local/share/texmf-texlive/tex/latex/revtex/aps10pt4-1.rtx
 File: aps10pt4-1 2010/07/25/20:33:00 4.1r (http://publish.aps.org/revtex4/ for 
 documentation)
 Class revtex4-1 Info: RevTeX pointsize 10pt selected on input line 30.
@@ -103,7 +103,7 @@ LaTeX Warning: You have requested, on input line 7549, version
                `2003/06/06 7.1 (PWD)'
                is available.
 
-(/opt/local/share/texmf-local/tex/latex/revtex/revsymb4-1.sty
+(/opt/local/share/texmf-texlive/tex/latex/revtex/revsymb4-1.sty
 Package: revsymb4-1 2010/07/25/20:33:00 4.1r (http://publish.aps.org/revtex4/ f
 or documentation)
 LaTeX Info: Redefining \REV@mathfrak on input line 119.
@@ -256,35 +256,21 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (./inputs/observations.tex [1]
 File: figures.include/edited_n_obs.eps Graphic file (type eps)
  <figures.include/edited_n_obs.eps>)
-(./inputs/simulation.tex
+(./inputs/simulation.tex [2]
 File: figures.include/chi_dist_example.eps Graphic file (type eps)
  <figures.include/chi_dist_example.eps>
 File: figures.include/const_flc_example.eps Graphic file (type eps)
 
-<figures.include/const_flc_example.eps>) (./inputs/models.tex [2]
-
-LaTeX Warning: A float is stuck (cannot be placed) on input line 1.
-
-
-LaTeX Warning: A float is stuck (cannot be placed) on input line 1.
-
-
-Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
-
-) (./inputs/results.tex) (./inputs/acknowledgement.tex) (./mira.bbl) [3]
-(./mira.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
-
-
- ) 
+<figures.include/const_flc_example.eps>) (./inputs/models.tex)
+(./inputs/results.tex) (./inputs/acknowledgement.tex) (./mira.bbl) [3]
+(./mira.aux) ) 
 Here is how much of TeX's memory you used:
- 3527 strings out of 494197
- 45160 string characters out of 6157367
- 119022 words of memory out of 5000000
- 6785 multiletter control sequences out of 15000+600000
+ 3527 strings out of 494186
+ 45177 string characters out of 6156914
+ 122107 words of memory out of 5000000
+ 6790 multiletter control sequences out of 15000+600000
  12389 words of font info for 52 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  37i,7n,29p,1043b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mira.dvi (3 pages, 23480 bytes).
+Output written on mira.dvi (3 pages, 25304 bytes).
