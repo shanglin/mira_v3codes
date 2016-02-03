@@ -1,0 +1,5 @@
+This script is used to copy all the simulated light curves that with L>0.6
+Due to that we used the slower code, we will not calculate the spectra for all the simulated data, but rather a portion of it.
+
+Use mk.train.dat.r instead.
+Feb 01, 2016

@@ -1,14 +1,14 @@
 fields = c(0:9,letters[1:19])
 
 dir = '~/Work/m33_miras/m33_trialp/'
-flcdir = '~/Work/m33_miras/simulate_mira/v3_mira_flcs/'
+flcdir = '~/Work/m33_miras/simulate_srv/v3_srv_flcs/'
 prsdir = paste0(dir,'prsfiles/')
 infdir = paste0(dir,'inffiles/')
-outdir = '~/Work/m33_miras/simulate_mira/mira.stet.jkl.vals/'
+outdir = '~/Work/m33_miras/simulate_srv/srv.stet.jkl.vals/'
 
-pattern = '^mira_.*.flc$'
+pattern = '^srv_.*.flc$'
 all.fs.lc = list.files(flcdir, pattern = pattern)
-lc.fields = substr(all.fs.lc,12,12)
+lc.fields = substr(all.fs.lc,11,11)
 n.all.fs = length(all.fs.lc)
 
 for (field in fields) {
@@ -62,7 +62,7 @@ for (field in fields) {
     close(con)
 
     ## Calculate variability for light curve files
-    f.out = paste0(outdir,'simu_mira_m0',field,'.jkl')
+    f.out = paste0(outdir,'simu_srv_m0',field,'.jkl')
     ts = '#      ID                     J        K       L'
     write(ts,f.out)
 

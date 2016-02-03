@@ -34,7 +34,7 @@ fig.width = fig.height * golden.ratio
 ## setEPS()
 ## postscript(f.eps,height = fig.height, width = fig.width)
 png(f.png,height = fig.height, width = fig.width)
-plot(mag,dj,pch=19,cex=0.3,xlim=c(15,22),ylim=c(-1,5),col=rgb(1,0,0,0.1),ylab = 'Delta J, Delta K + 2, Delta L + 4', xlab = 'I (mag)')
+plot(mag,dj,pch=19,cex=0.3,xlim=c(17,23),ylim=c(-1,5),col=rgb(1,0,0,0.1),ylab = 'Delta J, Delta K + 2, Delta L + 4', xlab = 'I (mag)')
 points(mag,dk + 2,pch=19,cex=0.3,col=rgb(0,1,0,0.1))
 points(mag,dl + 4,pch=19,cex=0.3,col=rgb(0,0,1,0.1))
 abline(h = 0, lty=3)

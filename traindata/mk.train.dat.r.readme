@@ -1,0 +1,12 @@
+This script only make a list of the training data.
+Not copied to a new directory.
+
+The list is in ~/Work/m33_miras/traindata/train.data.jkl.lst
+
+It also include those simulated light curves with L<0.6. 
+
+For completeness, the simulated constant star light curves are inluded in the list. 
+
+When upload the training data to cluster, simply load the list, select those with L>0.6, copy to subdirectories.
+
+Probably separate them into 5,900 subdirectories. (3000 jobs at miximum, upload twice.). Computation time might be around 4 days for each upload (4 days per job at maximum).
