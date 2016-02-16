@@ -1,0 +1,4 @@
+For simulated Mira: Compute the spectra for all with L not being NA. Around 100,000.
+For simulated SRV: Compute the spectra for all with L not being NA. Around 100,000.
+For simulated Constant: Compute the spectra for those with L>0.6. Around 40,000.
+For m33var: Compute the spectra for those with L>0.6. Around 80,697.
