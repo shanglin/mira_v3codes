@@ -1,11 +1,13 @@
 set.seed(101)
 
-dir = '/Volumes/TOSHIBA/m33_v3/gp_2.7_spectra/'
+args = commandArgs(trailingOnly = TRUE)
+field = args[1]
+type = args[2]
+print(field)
+print(type)
 
-field = '0'
-type = 'mira'
 if (type == 'mira') {
-    outdir = paste0('./feature_',type)
+    outdir = paste0('./feature_',type,'/')
     cmd = paste0('mkdir -p ',outdir)
     system(cmd)
     figdir = paste0(outdir,'figures/')
@@ -18,20 +20,20 @@ if (type == 'mira') {
     star.class = 1
 }
 if (type == 'srv') {
-    outdir = paste0('./feature_',type)
+    outdir = paste0('./feature_',type,'/')
     cmd = paste0('mkdir -p ',outdir)
     system(cmd)
     figdir = paste0(outdir,'figures/')
     cmd = paste0('mkdir -p ',figdir)
     system(cmd)
     spcdir = '/fdata/scratch/yuanwenlong/m33_v3/super_compute_all/srv/gp_result_v2/'
-    pattern = paste0('^',type,'......',field,'.*.gp.dat$')
+    pattern = paste0('^',type,'.......',field,'.*.gp.dat$')
     f.jkl = paste0('/fdata/scratch/yuanwenlong/Shared/srv.stet.jkl.vals/simu_srv_m0',field,'.jkl')
     dir.lc = '/fdata/scratch/yuanwenlong/Shared/v3_srv_flcs/'
     star.class = 0
 }
 if (type == 'const') {
-    outdir = paste0('./feature_',type)
+    outdir = paste0('./feature_',type,'/')
     cmd = paste0('mkdir -p ',outdir)
     system(cmd)
     figdir = paste0(outdir,'figures/')
@@ -39,11 +41,23 @@ if (type == 'const') {
     system(cmd)
     spcdir = '/fdata/scratch/yuanwenlong/m33_v3/super_compute_all/const/gp_result_v2/'
     pattern = paste0('^con.',field,'.*.gp.dat$')
-    f.jkl = paste0('/fdata/scratch/yuanwenlong/Shared/const.stet.jkl.vals/simu_srv_m0',field,'.jkl')
-    dir.lc =
-        star.class = 0
+    f.jkl = paste0('/fdata/scratch/yuanwenlong/Shared/const.stet.jkl.vals/simu_con_m0',field,'.jkl')
+    dir.lc = '/fdata/scratch/yuanwenlong/Shared/v3_const_flcs/'
+    star.class = 0
 }
-
+if (type == 'm33var') {
+    outdir = paste0('./feature_',type,'/')
+    cmd = paste0('mkdir -p ',outdir)
+    system(cmd)
+    figdir = paste0(outdir,'figures/')
+    cmd = paste0('mkdir -p ',figdir)
+    system(cmd)
+    spcdir = '/fdata/scratch/yuanwenlong/m33_v3/super_compute_all/m33var/gp_result_v2/'
+    pattern = paste0('^',field,'.*.gp.dat$')
+    f.jkl = paste0('/fdata/scratch/yuanwenlong/Shared/m33var.stet.jkl.vals/m33var_m0',field,'.jkl')
+    dir.lc = '/fdata/scratch/yuanwenlong/Shared/v3_m33var_flcs/'
+    star.class = -1
+}
 
 fs.dat = list.files(spcdir, pattern = pattern)
 nfs.dat = length(fs.dat)
@@ -52,7 +66,7 @@ if (nfs.dat < 1) {
     stop('')
 }
 
-f.csv = '~/Work/m33_miras/lmc_ofiles/all_star_table.csv'
+f.csv = '/fdata/scratch/yuanwenlong/gp_v2/lmc_ofiles/all_star_table.csv'
 csv = read.table(f.csv,sep=',',head=T)
 csv = subset(csv,Type=='Mira')
 
@@ -101,17 +115,21 @@ localmaxima = function(values) {
     }
 }
 
-for (i in 221:nfs.dat) {
-    print(paste(i,nfs.dat))
+do.extract = function(i) {
     f = fs.dat[i]
-    id = substr(f,6,10)
-    lid = paste0('OGLE-LMC-LPV-',id)
-    t.freq = 1./csv[csv[,1]==lid, 'P_1']
+    if (type == 'mira') {
+        id = substr(f,6,10)
+        lid = paste0('OGLE-LMC-LPV-',id)
+        t.freq = 1./csv[csv[,1]==lid, 'P_1']
+    } else {
+        t.freq = -1
+    }
     lf = paste0(spcdir,f)
     dat = read.table(lf)
     n.dat = nrow(dat)
     bad.idx = !is.finite(dat[,2])
-    print(sum(bad.idx))
+    print(paste(i,nfs.dat,sum(bad.idx),f))
+    
     if (sum(bad.idx) > 50) {
         next
     }
@@ -227,7 +245,7 @@ for (i in 221:nfs.dat) {
         amplitude = sqrt(posterior.gamma[2]^2 + posterior.gamma[3]^2)
         sd.error = sd(lc[,2] - tpl.mag[1:n.obs])
 
-        if (sample(1:1000,1) == 2) {
+        if (sample(1:500,1) == 1) {
             setEPS()
             f.eps = paste0(figdir,f.lc,'.eps')
             postscript(f.eps,width=12,height=12)
@@ -253,3 +271,6 @@ for (i in 221:nfs.dat) {
     }
 }
         
+for (i in 1:nfs.dat) {
+    try(do.extract(i), silent = T)
+}

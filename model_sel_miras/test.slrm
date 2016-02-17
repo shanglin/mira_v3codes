@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH -J fet-test
+#SBATCH -p background-4g
+#SBATCH --time=00:02:59
+#SBATCH -n1
+#SBATCH --mem-per-cpu=4095
+#SBATCH -o gf-%j.out
+#SBATCH -e gf-%j.err
+echo "starting at `date` on `hostname`"
+module load intel/2013_sp1.3
+module load R/3.1.1
+export MKL_NUM_THREADS=1
+Rscript sc.extract.features.r e m33var
+echo "ended at `date` on `hostname`"
+exit 0
