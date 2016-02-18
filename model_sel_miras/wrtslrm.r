@@ -8,6 +8,8 @@ w = function(ap = T) {
     return(0)
 }
 
+icounter = 1
+    
 f.sh = paste0(dir,'dosubmit_ex.sh')
 write('#',f.sh)
 for (type in types) {
@@ -45,10 +47,13 @@ for (type in types) {
         w()
         ts = 'exit 0'
         w()
+        tt = paste0('echo ','"',icounter,' submitting ',type,' ',field,' "')
+        write(tt, f.sh, append = T)
         tt = paste0('sbatch ',sf)
         write(tt, f.sh, append = T)
         tt = 'sleep 2'
         write(tt, f.sh, append = T)
+        icounter = icounter + 1
     }
 }
 

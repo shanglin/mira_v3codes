@@ -86,7 +86,7 @@ prior.gamma.cov = diag(5, 3, 3)
 prior.gamma.cov.inv = solve(prior.gamma.cov)
 n.tpl = 1000
 
-nskip = 1
+nskip = 3
 boxsize = 10
 hboxsize = round(boxsize/2)
 localmaxima = function(values) {
@@ -206,7 +206,7 @@ do.extract = function(i) {
         theta.2.sqr = theta.2 * theta.2
         for (ik1 in 1:n.obs) {
             for (ik2 in ik1:n.obs) {
-                Kc[ik1, ik2] = theta.1.sqr * exp(-(lc[ik1,1] - lc[ik2,2])^2 / (2*theta.2.sqr))
+                Kc[ik1, ik2] = theta.1.sqr * exp(-(lc[ik1,1] - lc[ik2,1])^2 / (2*theta.2.sqr))
                 if (ik1 == ik2) {
                     Kc[ik1, ik2] = Kc[ik1, ik2] + lc[ik1, 3]^2
                 } else {
@@ -232,7 +232,7 @@ do.extract = function(i) {
         Kc.star = matrix(NA, nrow = n.new.tpl, ncol = n.obs)
         for (ik1 in 1:n.new.tpl) {
             for (ik2 in 1:n.obs) {
-                Kc.star[ik1, ik2] = theta.1.sqr * exp(-(tpl.mjd[ik1] - lc[ik2,2])^2 / (2*theta.2.sqr))
+                Kc.star[ik1, ik2] = theta.1.sqr * exp(-(tpl.mjd[ik1] - lc[ik2,1])^2 / (2*theta.2.sqr))
             }
         }
         tpl.mag = H.star %*% posterior.gamma + Kc.star %*% Kc.inv %*% (y - H %*% posterior.gamma)
@@ -245,7 +245,7 @@ do.extract = function(i) {
         amplitude = sqrt(posterior.gamma[2]^2 + posterior.gamma[3]^2)
         sd.error = sd(lc[,2] - tpl.mag[1:n.obs])
 
-        if (sample(1:500,1) == 1) {
+        if (sample(1:100,1) == 1) {
             setEPS()
             f.eps = paste0(figdir,f.lc,'.eps')
             postscript(f.eps,width=12,height=12)
@@ -259,7 +259,7 @@ do.extract = function(i) {
                  pch = 19, cex = 0.5)
             arrows(lc[,1],lc[,2]+lc[,3],lc[,1],lc[,2]-lc[,3],length=0,angle=90,code=3)
             lines(tpl.mjd[(n.obs+1):n.new.tpl], tpl.mag[(n.obs+1):n.new.tpl])
-            points(lc[,1],p.mag+posterior.gamma[1],col=2,cex=0.2,pch=19)
+            ## points(lc[,1],p.mag+posterior.gamma[1],col=2,cex=0.2,pch=19)
             dev.off()
         }
 

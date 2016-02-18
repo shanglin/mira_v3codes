@@ -163,7 +163,7 @@ for (i in 221:nfs.dat) {
         theta.2.sqr = theta.2 * theta.2
         for (ik1 in 1:n.obs) {
             for (ik2 in ik1:n.obs) {
-                Kc[ik1, ik2] = theta.1.sqr * exp(-(lc[ik1,1] - lc[ik2,2])^2 / (2*theta.2.sqr))
+                Kc[ik1, ik2] = theta.1.sqr * exp(-(lc[ik1,1] - lc[ik2,1])^2 / (2*theta.2.sqr))
                 if (ik1 == ik2) {
                     Kc[ik1, ik2] = Kc[ik1, ik2] + lc[ik1, 3]^2
                 } else {
@@ -189,7 +189,7 @@ for (i in 221:nfs.dat) {
         Kc.star = matrix(NA, nrow = n.new.tpl, ncol = n.obs)
         for (ik1 in 1:n.new.tpl) {
             for (ik2 in 1:n.obs) {
-                Kc.star[ik1, ik2] = theta.1.sqr * exp(-(tpl.mjd[ik1] - lc[ik2,2])^2 / (2*theta.2.sqr))
+                Kc.star[ik1, ik2] = theta.1.sqr * exp(-(tpl.mjd[ik1] - lc[ik2,1])^2 / (2*theta.2.sqr))
             }
         }
         tpl.mag = H.star %*% posterior.gamma + Kc.star %*% Kc.inv %*% (y - H %*% posterior.gamma)
