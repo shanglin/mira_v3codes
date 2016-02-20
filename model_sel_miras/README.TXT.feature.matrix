@@ -1,0 +1,58 @@
+=========== FILE ONE ============
+
+feature_matrix.dat:
+	(1) ID. 
+	There are four types of IDs:
+
+	      (i) `mira_?????_*_*.*.flc` For example: mira_00082_0ci1562_87.87.flc
+	      `mira` means that this is a simulated Mira star.
+	      `00082` is the OGLE ID of the template upon which this light curve is generated. This is alway five digits.
+	      `0ci1562` is the M33 ID from which the sampling pattern and noise level were obtained. It is NOT necessarily 7 characters.
+	      `87.87` record the time shift information between M33 sampling dates and template light curve. It is NOT necessarily 5 characters.
+	      `flc` means Fake Light Curve.
+
+	      (ii) `srv_?????_*_*.*.flc` For example: srv_00020_0ci6490_751.9.flc
+	      `srv` means that this is a simulated SRV star.
+	      Others are the same as (i).
+
+	      (iii) `con_*.flc` For example: con_0ci100020.flc
+	      `con` means that this is a simulated constant star.
+	      `0ci100020` is the M33 ID from which the sampling pattern and noise level were obtained.
+
+	      (iv) `*.rlc` For example: 0vi100004.rlc
+	      `0vi100004` is the M33 ID. Specificly the first character `0` in this ID means that it is in Field 0. The second character `v` means that it is identified as a variable due to L > 0.6. The third character `i` means it is a I-band light curve. `100004` is the serial number for stars in the field.
+	      `rlc` means Real Light Curve.
+
+	(2) f.true : True frequency reported by OGLE group. It is only given for simulated Miras. For other types it is set to -1 and meaningless.
+
+	(3) f.peak : The detected frequency of the highest peak in the frequency spectrum.
+
+	(4) class : This column can be either `1` (Mira with period correctly recovered), `0` (Other types of simulated light curve OR Mira with WRONG period estimation), or `-1` (M33 real light curve). `Period correctly recovered` means that abs(f.peak - f.true) < 0.00027. As suggested by Dr. Macri, spliting simulated Miras into two catagories (Period right and Period wrong) is not necessarily needed, and it may even be harmful to the model of selection. Please feel free to ignore this column.
+
+	(5) Q : The log likelihood of the peak.
+
+	(6) dQ.Q.base : The difference between peak log likelihood and baseline log likelihood. `Baseline` refers to the lower 10% quantile line of log likelihood across the entire frequency range. We did not use the lowest point as baseline in the hope of avoiding numerical failure artifects.
+
+	(7) dQ.Q.p2 : The log likelihood difference between the highest peak and the secondary peak. It is set to 0 if only one peak exists. This column is kept because currently we do not have any clues whether it is degenerated with column (6) or not.
+
+	(8) theta.2 : The best-fit value of hyper-parameter theta 2.
+
+	(9) amplitude : sqrt(a^2 + b^2). Where a and b are the posterior coefficients of cos(x) and sin(x). It differs a factor of 2 to the ordinary definition of amplitude in astronomy.
+
+	(10) L : Stetson's L index. The L values are greater than 0.6 for simulated constant light curves and M33 real light curve, but it can be less than 0.6 for simulated Miras and SRVs. One can make cuts on 0.6 or above 0.6, but lower than 0.6 is discouraged simply because we did not have counterpart M33 light curves and simulated constant star light curves.
+
+
+=========== FILE TWO ============
+
+all_star_table.csv:
+	This is the OGLE catalog table, which inludes OGLE IDs and other information. It is included here to provide the spectra-type information (O-rich/C-rich) of the simulated Miras. One need to match the IDs between the two tables if study the O-rich/C-rich classification.
+
+
+=========== FILE THREE ============
+Light curves. NOT INCLUDED HERE! They are relatively large in size and not included here. It is available on the brazos cluster at: /fdata/scratch/yuanwenlong/Shared/
+
+
+=========== FILE FOUR ============
+Spectra data. NOT INCLUDED HERE! They are also on the brazos cluster but not yet compiled to the Shared directory. If anyone need it please let me know and I will compile them and make them readable.
+
+Thanks!
