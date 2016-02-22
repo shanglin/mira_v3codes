@@ -1,0 +1,5 @@
+This script will recover the ra, dec and other information based on Pellern's result.
+However, the i-only type magnitude is instrumental magnitude, while the m-band type magnitude is calibrated magnitude.
+To calibrate the i-only type magnitude, one need to download the Messy's catalog and derive a mean difference (or difference as a function of magnitude).
+
+We will adopt Pellern's RA, Dec, m-band type magnitde. The i-only type magnitude will be re-calculated.
