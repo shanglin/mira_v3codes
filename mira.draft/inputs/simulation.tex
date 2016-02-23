@@ -19,7 +19,7 @@ where $a$, $b$, and $c$ are free parameters and varies with frames identified by
 
 We simulated $\sim 5\times 10^5$ light curves for constant stars, which matches the number of observed stars in M33. For the M33 observations, the magnitude uncertainties reported by the photometry software were sometimes either under-estimated or over-estimated. Since both the $L$ index and the Mira periodogram utilize the the value of magnitude uncertainties, we took the inaccuracy of reported magnitude uncertainties into account for the simulated light curves. For constant stars the inaccuracy of uncertainties can be described by
 \begin{equation}
-\chi_\nu^2 = \frac{1}{\sqrt{n-1}}\sum_{i=1}^n\frac{(m_i-\bar m)^2}{\sigma_i^2}\,,
+\chi_\nu^2 = \frac{1}{n-1}\sum_{i=1}^n\frac{(m_i-\bar m)^2}{\sigma_i^2}\,,
 \end{equation}
 where $n$ is the number of observations. Figure~\ref{fig.chi.dist.example} shows the distribution of $\chi_\nu^2$ as a function of magnitude for all stars in one field of the M33 observations.
 

@@ -1,0 +1,14 @@
+This step involved the following tasks:
+
+(1) Match the new I-band light curves to Pellerin's catalog, retrieve the RA, Dec, etc.
+    output: m33var_raw_cat.dat, m33con_raw_cat.dat
+    sid         ra         dec    imag     ierr   vmag    verr    bmag    berr    vid     bid
+
+(2) Use the RA, Dec information, match the raw_cat.dat to Massey's M33 photometry catalog to derive the zero point of i-only type magnitude.
+    dI = dI_0  or   dI = dI(I)
+    To derive dI, use constant stars to match, and apply the results to both constant stars and variable stars.
+    add flags to indicate where the photometry come from. Or maybe do not use Massey's photometry.
+
+(3) Combine duplicate light curves. There are some stars have multiple light curves since they appears in different frames. The previous dup.dat from Dr. Pellerin seems difficult to recover (and not complete). We will check duplicates based on RA and Dec.
+    Duplicate light curves will be recorded in a different file. The new light curves will be generated based on the duplicate record. We need to consider constant and variable as whole to check duplicates.
+    New light curves will be saved in dir/duplicate  (parallel to constant and variable)
