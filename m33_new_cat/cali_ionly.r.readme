@@ -1,1 +1,3 @@
- To derive dI, use constant stars to match, and apply the results to both constant stars and variable stars.
+To derive dI, use the .fnl file and Massey's catalog.
+Apply the results to those with vmag = -1.
+I = fnl I - mean(dI)
