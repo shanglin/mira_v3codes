@@ -1,4 +1,12 @@
 For simulated Mira: Compute the spectra for all with L not being NA. Around 100,000.
 For simulated SRV: Compute the spectra for all with L not being NA. Around 100,000.
 For simulated Constant: Compute the spectra for those with L>0.6. Around 40,000.
+
+------------ These will not be used for now -----------------------------
 For m33var: Compute the spectra for those with L>0.6. Around 80,697.
+For m33dupvar: Added on Feb 24, 2016. Those are duplicate light curves. Considered as var if at least one of the light curve has L>0.6. Around 7275.
+
+
+------------ Run GP for the dlcs: the bad observations have beed deleted ----------
+Added on Feb 27:
+m33dlc: 

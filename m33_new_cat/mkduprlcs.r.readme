@@ -1,0 +1,9 @@
+   There are some stars in M33 observed in multiple fields. The word `fields` here can be confusing because the M33 observations consist of WIYN fields and DIRECT fields. When I searched for stars in overlap regions, I only relied on the topological map of WIYN fields, which have labels from 0 to s.
+
+   Then there will be an issue for the merged light curves in terms of DIRECT observations. For a certain merged light curve, the photometry came from at least two WIYN fields ALLFRAME outputs, which may or may not share the same DIRECT field. In the case of sharing DIRECT field, the merged light curve contains some observations with the identical MJDs, while their photometry are slightly different even after the zero point shifting between frames. Should I take the mean of these observations with identical MJDs to avoid double counting?
+
+  For the overlap regions of DIRECT fields, it will not be easy to recover, unless we redo the photometry from scratch.
+
+==============================================================
+
+I will take the mean of same MJDs in the directory of dup_constant/dup_variable.

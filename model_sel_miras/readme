@@ -1,0 +1,3 @@
+For feature extraction:
+ For simulated light curves and m33var, they were calculated on the cluster.
+ We added duplicate light curves later (Feb 24, 2016) and calculate these locally.

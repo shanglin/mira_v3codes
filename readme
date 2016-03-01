@@ -1,0 +1,6 @@
+m33_trialp:
+	directory of making rlc files: light curves based on new TRIALP & include all constant stars
+
+m33_dlcs:
+	Delete observations with MJD between [1300,1700]. They are not correct. For observations at [1000,1200], calculation the scatter of these observations and the scatter of the rest (excluding [1300,1700] as well). If sd_1000 > 2*sd_rest && N_1000 < 3*N_rest, delete them.
+
