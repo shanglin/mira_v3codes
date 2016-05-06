@@ -1,9 +1,0 @@
-We simulated 5000 Mira light curves by applying the M33 sampling patterns and noise levels to LMC Mira light curves from the OGLE observations. The detailed description of simulation method can be found in \red{(Citation Coming Soon)}, and here we briefly describe the method we used. 
-
-We used the model from \red{(Citation Coming Soon)} to generate template Mira light curves. The magnitudes of the templates were shifted by 6.2 mag to account for the distance difference between LMC and M33. To simulate a Mira light curve, we randomly selected a sampling pattern from the M33 observations and shifted by some amount to match the baseline of OGLE observations, then selected a template randomly but with weightss from completeness functions of M33 observations, which are derived empirically for three ranges of color.
-
-The noise levels were derived for individual images of M33 observations. We fit the relation between magnitude uncertainties $\sigma$ and magnitude $m$ with the following empirical function
-\begin{equation}
-\sigma(t_i,f_k) = a(t_i,f_k)^{[m-b(t_i,f_k)]} + c(t_i,f_k)\,, \label{equ.sigma.mag}
-\end{equation}
-where $a$, $b$, and $c$ are free parameters and varies with time $t_i$ and field $f_k$. We then calculated the uncertainties for simulated Mira light curves based on these relations, and added Gaussian noise to their magnitudes with standard deviations at $\sigma(t_i,f_k)$.
